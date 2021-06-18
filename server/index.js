@@ -10,6 +10,8 @@ const PORT = process.env.PORT;
 console.log(`port no ${PORT}`);
 //app.use(require)
 app.use(express.json());
+var cors = require('cors');
+app.use(cors());
 //const User = require('./model/user_schema')
 app.use(require('./router/auth'))
 

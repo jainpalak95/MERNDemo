@@ -5,10 +5,14 @@ const bcrypt = require('bcrypt');
 require('../db/connection');
 
 // Basic Get Request
-router.get('/', (req, res) => {
-  res.send(`Hello world from auth.js`)
-});
+// router.get('/', (req, res) => {
+//   res.send(`Hello world from auth.js`)
+// });
+// //TestSignup
+// router.post('/register', (req, res) => {
+//   console.log(req.body);
 
+// })
 //Signup API
 router.post('/register', (req, res) => {
   console.log(req.body);
@@ -33,13 +37,36 @@ router.post('/register', (req, res) => {
         console.log(`userdetails ${user}`)
       }).catch(error => {
         res.status(500).json({ error: 'Registration Failed' })
+        console.log('Failed')
       })
     }
     }).catch(error => {
       console.log(error);
+      console.log("invalid data")
     })
 
 })
+
+// router.post('/login',(req,res) => {
+//   console.log(req.body);
+// try{
+//   const {email, password} = req.body
+//   if(!email || !password){
+//     return res.status(400).json({error : 'All the fields are mendatory'});
+//   }
+//   else{
+//     res.status(201).json({error : 'succssfully loggedin'});
+//   }
+  
+
+// }
+// catch(error){
+//   console.log(error);
+//   consol.log('error coming')
+// }
+// });
+
+
 
 //Login API
 router.post('/login', async(req,res) => {
@@ -53,22 +80,26 @@ try{
 
   console.log(userLogin);
   if (userLogin){
-    const isMatch = await bcrypt.compare(password, userLogin.password)
-    if (!isMatch){
-      res.status(400).json({error : 'invalid credentials'});
-    }
-    else{
-      res.status(201).json({error : 'succssfully loggedin'});
-    }
+    // const isMatch = await bcrypt.compare(password, userLogin.password)
+    // if (!isMatch){
+    //   res.status(400).json({error : 'invalid credentials'});
+    // }
+    // else{
+    //   res.status(201).json({error : 'succssfully loggedin'});
+    // }
+    res.status(201).json({error : 'succssfully loggedin'});
   }
   else{
     res.status(400).json({error : 'invalid credentials'});
+   
   }
   
 
 }
 catch(error){
   console.log(error);
+  consol.log('error coming')
 }
 });
+
 module.exports = router;

@@ -17,16 +17,16 @@ return(
       <li className="nav-item active">
         <NavLink className="nav-link" to="/">Home</NavLink>
       </li>
-      <li class="nav-item">
+      <li className="nav-item">
         <NavLink className="nav-link" to="/about">About</NavLink>
       </li>
-      <li class="nav-item">
+      <li className="nav-item">
         <NavLink className="nav-link" to="/contact">Contact</NavLink>
       </li>
-      <li class="nav-item">
+      <li className="nav-item">
         <NavLink className="nav-link" to="/login">Login</NavLink>
       </li>
-      <li class="nav-item">
+      <li className="nav-item">
         <NavLink className="nav-link" to="/signup">Registration</NavLink>
       </li>
       
